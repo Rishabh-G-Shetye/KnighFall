@@ -1,0 +1,163 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1gmiwfqmntw8"]
+
+[ext_resource type="Script" uid="uid://cf18hnio051cq" path="res://main_menu.gd" id="1_06t4h"]
+
+[sub_resource type="Theme" id="Theme_rhts7"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_06t4h")
+
+[node name="Title" type="Label" parent="."]
+offset_right = 1500.0
+offset_bottom = 347.0
+theme_override_font_sizes/font_size = 200
+text = "Knightfall"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 2.0
+offset_top = 302.0
+offset_right = 1502.0
+offset_bottom = 851.0
+theme = SubResource("Theme_rhts7")
+
+[node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="play_button" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Play Easy Difficulty"
+
+[node name="hard_play_button" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Play Hard Difficulty"
+
+[node name="settings_button" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+
+[node name="credits-button" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
+[node name="quit_button" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit
+"
+
+[node name="SettingsMenu" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Back" type="Button" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 70
+text = "Go back
+"
+
+[node name="fullscreen" type="CheckBox" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Fullscreen
+"
+
+[node name="mainvolslider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/mainvolslider"]
+custom_minimum_size = Vector2(380, 50)
+layout_mode = 0
+offset_top = -16.0
+offset_right = 380.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 40
+text = "Main Volume
+"
+horizontal_alignment = 1
+
+[node name="musicvolslider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/musicvolslider"]
+custom_minimum_size = Vector2(380, 50)
+layout_mode = 0
+offset_top = -16.0
+offset_right = 380.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 40
+text = "Music Volume
+"
+horizontal_alignment = 1
+
+[node name="sfxvolslider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/sfxvolslider"]
+custom_minimum_size = Vector2(380, 50)
+layout_mode = 0
+offset_top = -16.0
+offset_right = 380.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 40
+text = "SFX Volume
+"
+horizontal_alignment = 1
+
+[node name="CreditsMenu" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="CenterContainer/CreditsMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "A Game developed by:
+Rishabh Shetye
+Eben Morais
+Adriel Fernandes"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="CenterContainer/CreditsMenu"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 70
+text = "Go back
+"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -10
+offset_right = 1508.0
+offset_bottom = 846.0
+mouse_filter = 2
+color = Color(0.701961, 0, 0.462745, 1)
+
+[connection signal="pressed" from="CenterContainer/MainButtons/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/hard_play_button" to="." method="_on_hard_play_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/credits-button" to="." method="_on_creditsbutton_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/SettingsMenu/Back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="CenterContainer/SettingsMenu/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="value_changed" from="CenterContainer/SettingsMenu/mainvolslider" to="." method="_on_mainvolslider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/SettingsMenu/musicvolslider" to="." method="_on_musicvolslider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/SettingsMenu/sfxvolslider" to="." method="_on_sfxvolslider_value_changed"]
+[connection signal="pressed" from="CenterContainer/CreditsMenu/Back" to="." method="_on_back_pressed"]

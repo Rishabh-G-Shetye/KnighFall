@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6vhef6oc6chg"]
+
+[ext_resource type="Texture2D" uid="uid://cidh6jjbcyyof" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Hover_3Slides.png" id="1_0fn5v"]
+[ext_resource type="Script" uid="uid://djtxkt2w6gv7n" path="res://victory.gd" id="1_t7nu0"]
+[ext_resource type="Texture2D" uid="uid://dimccdogjuucg" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides.png" id="2_t7nu0"]
+[ext_resource type="Texture2D" uid="uid://nteinp051tum" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Red_3Slides.png" id="3_t3puq"]
+[ext_resource type="Texture2D" uid="uid://bnshrxqnn8nrj" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Red_3Slides_Pressed.png" id="4_0qotv"]
+[ext_resource type="AudioStream" uid="uid://dq76r8xjv5lrj" path="res://orchestral-win-331233.mp3" id="6_t3puq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7nu0")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 1152.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 50
+text = "Victory,
+ the Knights have won!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1501.0
+offset_bottom = 849.0
+color = Color(0.446063, 0.786897, 0.909959, 1)
+
+[node name="MainButton" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 640.0
+offset_top = 512.0
+offset_right = 832.0
+offset_bottom = 576.0
+texture_normal = ExtResource("1_0fn5v")
+texture_pressed = ExtResource("1_0fn5v")
+texture_hover = ExtResource("2_t7nu0")
+ignore_texture_size = true
+
+[node name="MainLabel" type="Label" parent="MainButton"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 40.0
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 640.0
+offset_top = 640.0
+offset_right = 832.0
+offset_bottom = 704.0
+texture_normal = ExtResource("3_t3puq")
+texture_pressed = ExtResource("4_0qotv")
+texture_hover = ExtResource("1_0fn5v")
+
+[node name="QuitLabel" type="Label" parent="QuitButton"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 40.0
+text = "Quit "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_t3puq")
+autoplay = true
+
+[connection signal="pressed" from="MainButton" to="." method="_on_main_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

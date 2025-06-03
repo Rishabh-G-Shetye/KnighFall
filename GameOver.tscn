@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwqqv0dt0mp3i"]
+
+[ext_resource type="Script" uid="uid://cci20voav84eg" path="res://game_over.gd" id="1_3y56u"]
+[ext_resource type="Texture2D" uid="uid://dimccdogjuucg" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides.png" id="1_jywu3"]
+[ext_resource type="Texture2D" uid="uid://dreaab5ckojgm" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="2_3y56u"]
+[ext_resource type="Texture2D" uid="uid://cidh6jjbcyyof" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Hover_3Slides.png" id="3_ua7od"]
+[ext_resource type="Texture2D" uid="uid://nteinp051tum" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Red_3Slides.png" id="4_3fonj"]
+[ext_resource type="Texture2D" uid="uid://bnshrxqnn8nrj" path="res://Tiny Swords (Update 010)/UI/Buttons/Button_Red_3Slides_Pressed.png" id="5_758bs"]
+[ext_resource type="AudioStream" uid="uid://cytki30mxeh3m" path="res://no-luck-too-bad-disappointing-sound-effect-112943.mp3" id="7_ua7od"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3y56u")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 1152.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 50
+text = "Game Over,
+The Knights have Fallen."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1504.0
+offset_bottom = 856.0
+color = Color(0.564987, 0, 0.0431366, 1)
+
+[node name="RetryButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 640.0
+offset_right = 640.0
+offset_bottom = 704.0
+texture_normal = ExtResource("1_jywu3")
+texture_pressed = ExtResource("2_3y56u")
+texture_hover = ExtResource("3_ua7od")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RetryLabel" type="Label" parent="RetryButton"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 45.0
+text = "Retry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 640.0
+offset_right = 1088.0
+offset_bottom = 704.0
+texture_normal = ExtResource("4_3fonj")
+texture_pressed = ExtResource("5_758bs")
+texture_hover = ExtResource("3_ua7od")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="QuitLabel" type="Label" parent="QuitButton"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 39.0
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ua7od")
+autoplay = true
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Texture2D" uid="uid://d1rc3q1uwip8k" path="res://Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Blue.png" id="1_otbp0"]
+[ext_resource type="Texture2D" uid="uid://ddvp653h8t57s" path="res://Tiny Swords (Update 010)/Factions/Knights/Troops/Archer/Archer + Bow/Archer_Blue_(NoArms).png" id="2_e7jq0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_antcs"]
+atlas = ExtResource("1_otbp0")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ig2ak"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_antcs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iorut"]
+atlas = ExtResource("2_e7jq0")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eh2ac"]
+atlas = ExtResource("2_e7jq0")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb4xd"]
+atlas = ExtResource("2_e7jq0")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsomk"]
+atlas = ExtResource("2_e7jq0")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_von22"]
+atlas = ExtResource("2_e7jq0")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqar7"]
+atlas = ExtResource("2_e7jq0")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o85xn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iorut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eh2ac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb4xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsomk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_von22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqar7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ig2ak")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -52)
+sprite_frames = SubResource("SpriteFrames_o85xn")
